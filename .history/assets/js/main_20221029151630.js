@@ -20,11 +20,7 @@ form.addEventListener("submit", (e) => {
   }
 
   const imc = getIMC(peso, altura)
-  const nivelImc = getNivelIMC(imc)
-
-  const msg = `Seu IMC é de ${imc} (${nivelImc})`
-
-  setResultado(msg, true)
+  console.log(imc)
 })
 
 function getNivelIMC(imc) {
@@ -40,15 +36,13 @@ function getNivelIMC(imc) {
   if (imc >= 39.9) {
     return nivel[5]
   } else if (imc >= 34.9) {
-    return nivel[4]
+    return nivel[5]
   } else if (imc >= 29.9) {
-    return nivel[3]
+    return nivel[5]
   } else if (imc >= 24.9) {
-    return nivel[2]
+    return nivel[5]
   } else if (imc >= 18.5) {
-    return nivel[1]
-  } else if (imc < 18.5) {
-    return nivel[0]
+    return nivel[5]
   }
 }
 
@@ -67,13 +61,6 @@ function setResultado(msg, isValid) {
   resultado.innerHTML = ""
 
   const p = createP()
-
-  if (isValid) {
-    p.classList.add("paragrafo-resultado")
-  } else {
-    p.classList.add("bad")
-  }
-
   p.innerHTML = msg
-  resultado.appendChild(p)
+  resultado.appChild("p")
 }

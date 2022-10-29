@@ -20,9 +20,9 @@ form.addEventListener("submit", (e) => {
   }
 
   const imc = getIMC(peso, altura)
-  const nivelImc = getNivelIMC(imc)
+  const nivelImc = getNivelImc(imc)
 
-  const msg = `Seu IMC é de ${imc} (${nivelImc})`
+  const msg = `Seu IMC [e ${imc} (${nivelImc})`
 
   setResultado(msg, true)
 })
@@ -67,13 +67,12 @@ function setResultado(msg, isValid) {
   resultado.innerHTML = ""
 
   const p = createP()
-
-  if (isValid) {
+  if (isvalid) {
     p.classList.add("paragrafo-resultado")
   } else {
     p.classList.add("bad")
   }
 
   p.innerHTML = msg
-  resultado.appendChild(p)
+  resultado.appChild("p")
 }
